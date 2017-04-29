@@ -56,8 +56,8 @@ function checkScroll() {
 
 }
 
-window.addEventListener('scroll', checkScroll, false);
-window.addEventListener('resize', checkScroll, false);
+// window.addEventListener('scroll', checkScroll, false);
+// window.addEventListener('resize', checkScroll, false);
 
 // require('is-in-viewport')
 
