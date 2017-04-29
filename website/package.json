@@ -1,7 +1,7 @@
 {
-  "name": "portfolio",
+  "name": "hyperloop",
   "version": "1.0.0",
-  "description": "Naman Malhotra's portfolio",
+  "description": "Hyperloop India website",
   "main": "index.js",
   "scripts": {
     "build": "browserify assets/js/app.js -o bundle.js",
@@ -11,8 +11,8 @@
   },
   "devDependencies": {
     "browserify": "^13.1.0",
-    "react": "^15.4.1",
-    "react-dom": "^15.4.1",
+    "particles.js": "^2.0.0",
+    "video.js": "^5.19.2",
     "watchify": "^3.7.0"
   },
   "dependencies": {

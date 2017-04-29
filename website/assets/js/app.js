@@ -15,7 +15,7 @@ var NProgress = require('NProgress');
  * partcles js load
  */
 
-// var particlesJS = require('particlesJS');
+var particlesJS = require('particlesJS');
 
 /**
  * Bootstrap loading
@@ -23,11 +23,56 @@ var NProgress = require('NProgress');
 
  var bootstrap = require('bootstrap');
 
+ var videojs = require('video.js'); 
+
+
+var player = videojs('my-video');
+
+var videos = $('#my-video_html5_api'),
+fraction = -0.2;
+function checkScroll() {
+
+    for(var i = 0; i < videos.length; i++) {
+
+        var video = videos[i];
+
+        var x = video.offsetLeft, y = video.offsetTop, w = video.offsetWidth, h = video.offsetHeight, r = x + w, //right
+            b = y + h, //bottom
+            visibleX, visibleY, visible;
+
+            visibleX = (0, Math.min(w, window.pageXOffset + window.innerWidth - x, r - window.pageXOffset));
+            visibleY = (0, Math.min(h, window.pageYOffset + window.innerHeight - y, b - window.pageYOffset));
+
+            visible = visibleX * visibleY / (w * h);
+           // console.log('scroll='+visible);
+            if (visible < fraction && visible > -1.2) {
+                video.play();
+            } else {
+                video.pause();
+            }
+
+    }
+
+}
+
+window.addEventListener('scroll', checkScroll, false);
+window.addEventListener('resize', checkScroll, false);
+
+// require('is-in-viewport')
+
 /**
  * Jquery Scrollify
  */
 
  require('jquery-scrollify')(window);
+
+//  $('video').each(function(){
+//     if ($(this).is(":in-viewport")) {
+//         $(this)[0].play();
+//     } else {
+//         $(this)[0].pause();
+//     }
+// })
 
  //var niceScroll = require('jquery.nicescroll');
 
@@ -40,35 +85,33 @@ var NProgress = require('NProgress');
 //var WOW = require('wowjs');
 
 
-/*
+
 particlesJS.load('part', 'assets/particles.json', function() {
-	console.log('callback - particles.js config loaded');
+	//console.log('callback - particles.js config loaded');
 });
-*/
-
-var ar = ["<i class='fa fa-quote-left'></i> Java is to JavaScript what Car is to Carpet. <i class='fa fa-quote-right'></i>",
-"<i class='fa fa-quote-left'></i> The best thing about a boolean is even if you are wrong, you are only off by a bit <i class='fa fa-quote-right'></i>",
-"<i class='fa fa-quote-left'></i> There are two ways to write error-free programs; only the third one works. <i class='fa fa-quote-right'></i>",
-"<i class='fa fa-quote-left'></i> One man&#8217;s crappy software is another man&#8217;s full time job. <i class='fa fa-quote-right'></i>",
-"<i class='fa fa-quote-left'></i> while(!(success == try())) <i class='fa fa-quote-right'></i>",
-"<i class='fa fa-quote-left'></i> In order to understand recursion, one must first understand recursion. <i class='fa fa-quote-right'></i>",
-"<i class='fa fa-quote-left'></i> Computers are good at following instructions, but not at reading your mind. <i class='fa fa-quote-right'></i>",
-"<i class='fa fa-quote-left'></i> One of my most productive days was throwing away 1000 lines of code. <i class='fa fa-quote-right'></i>"];
-
-NProgress.start();  
-NProgress.set(0.6); 
 
 
-$(window).on('load', function() { 
-		setTimeout(function() {
-			NProgress.done(); 
-		}, 500);
-		
+var ar = ["<i class='fa fa-quote-left'></i> Something classy about us ... <i class='fa fa-quote-right'></i>",
+"<i class='fa fa-quote-left'></i> Something classy about us ... <i class='fa fa-quote-right'></i>",
+"<i class='fa fa-quote-left'></i> Something classy about us ... <i class='fa fa-quote-right'></i>",
+"<i class='fa fa-quote-left'></i> Something classy about us ...<i class='fa fa-quote-right'></i>",
+"<i class='fa fa-quote-left'></i> Something classy about us ... <i class='fa fa-quote-right'></i>",
+"<i class='fa fa-quote-left'></i> Something classy about us ... <i class='fa fa-quote-right'></i>"];
 
-	})
+// NProgress.start();  
+// NProgress.set(0.6); 
 
 
-var timeout = 3000;
+// $(window).on('load', function() { 
+// 	setTimeout(function() {
+// 		NProgress.done(); 
+// 	}, 500);
+
+
+// })
+
+
+var timeout = 4000;
 
 function myLoop()
 {
@@ -131,6 +174,17 @@ $(".know").click(function(e)
 
 
 
+$(window).on('load', function() { 
+
+	setTimeout(function() {
+
+		$(".preloader").delay(500).fadeOut("slow");
+
+
+	}, 500);
+
+})
+
 
 
 $(function() {
@@ -157,16 +211,16 @@ $(function() {
  */
 
 
- $(window).scroll(function() 
- {
+ // $(window).scroll(function() 
+ // {
 
- 	var top_dist = $(window).scrollTop()/70;
+ // 	var top_dist = $(window).scrollTop()/70;
 
- 	if(top_dist<=10)
- 		$('#header-top').css("filter","blur("+top_dist+"px)");
+ // 	if(top_dist<=10)
+ // 		$('#header-top').css("filter","blur("+top_dist+"px)");
 
 
- });
+ // });
 
  function getRandomInt(min, max) 
  {

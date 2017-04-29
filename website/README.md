@@ -1,10 +1,10 @@
-# Custom Portfolio Design.
+# Custom Hyperloop Design.
 
-Custom designed portfolio template.
+Custom designed Hyperloop website.
 
 # Live Demo
 
-  [https://letsconnect.co/] (https://letsconnect.co/)
+  [https://hyperloopindia.in/] (https://hyperloopindia.in/)
 
 # Features
 - Material UI
@@ -12,7 +12,6 @@ Custom designed portfolio template.
 - Wave canvas
 - Bootstrap
 - Smooth Scroll toggle
-- Best for professional portfolios.
 
 ### Dependencies
 
